@@ -29,8 +29,7 @@ public class SagaExecutionController {
     @Value("${spring.kafka.topic.product-validation-fail}")
     private String productValidationFailTopic;
 
-
-    public void handlerSaga(Event event) {
+    public void handleSaga(Event event) {
         switch (event.getStatus()) {
             case SUCCESS -> handleSuccess(event);
             case ROLLBACK_PENDING -> handleRollbackPending(event);
